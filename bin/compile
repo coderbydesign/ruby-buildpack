@@ -5,6 +5,7 @@ $stdout.sync = true
 
 cache_dir = ARGV[1]
 compile_extensions_dir = File.expand_path(File.join(File.dirname(__FILE__), '..', 'compile-extensions'))
+ENV["LD_LIBRARY_PATH"] = "#{ARGV[0]}/libs_native"
 
 exit(44) unless system("#{compile_extensions_dir}/bin/check_stack_support")
 
